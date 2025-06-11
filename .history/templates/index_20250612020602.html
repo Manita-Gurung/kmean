@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Airbnb Cluster Prediction</title>
+</head>
+<body>
+    <h2>Airbnb Cluster Prediction</h2>
+
+    <form method="POST" action="/predict">
+        <label>Select Model:</label><br>
+        <select name="model">
+            <option>Model 1</option>
+            <option>Model 2</option>
+            <option>Model 3</option>
+            <option>Model 4</option>
+        </select><br><br>
+
+        <label>Price:</label><br><input name="price"><br><br>
+        <label>Service Fee:</label><br><input name="service_fee"><br><br>
+        <label>Minimum Nights:</label><br><input name="minimum_nights"><br><br>
+        <label>Number of Reviews:</label><br><input name="number_of_reviews"><br><br>
+        <label>Reviews Per Month:</label><br><input name="reviews_per_month"><br><br>
+        <label>Host Listings Count:</label><br><input name="calculated_host_listings_count"><br><br>
+        <label>Availability (365):</label><br><input name="availability_365"><br><br>
+
+        <input type="submit" value="Predict Cluster">
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html>

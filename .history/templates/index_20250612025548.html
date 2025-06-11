@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Airbnb Cluster Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            max-width: 500px;
+            margin: 40px auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #343a40;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 8px 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.1em;
+            text-align: center;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Airbnb Cluster Prediction</h2>
+        <form method="POST" action="/predict">
+            <label>Select Model:</label>
+            <select name="model">
+                <option>Model 1</option>
+                <option>Model 2</option>
+                <option>Model 3</option>
+                <option>Model 4</option>
+            </select>
+
+            <label>Price:</label>
+            <input type="text" name="price">
+
+            <label>Service Fee:</label>
+            <input type="text" name="service_fee">
+
+            <label>Minimum Nights:</label>
+            <input type="text" name="minimum_nights">
+
+            <label>Number of Reviews:</label>
+            <input type="text" name="number_of_reviews">
+
+            <label>Reviews Per Month:</label>
+            <input type="text" name="reviews_per_month">
+
+            <label>Host Listings Count:</label>
+            <input type="text" name="calculated_host_listings_count">
+
+            <label>Availability (365):</label>
+            <input type="text" name="availability_365">
+
+            <input type="submit" value="Predict Cluster">
+        </form>
+
+        {% if prediction_text %}
+            <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
