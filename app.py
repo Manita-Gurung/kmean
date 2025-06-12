@@ -29,5 +29,8 @@ def predict():
 
     return render_template('index.html', prediction_text=f'The listing belongs to Cluster: {prediction}')
 
-if __name__ == "__main__":
-    app.run(debug=True)
+import os
+
+port = int(os.environ.get("PORT", 10000))  # use Render's port or fallback to 10000
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=port)
